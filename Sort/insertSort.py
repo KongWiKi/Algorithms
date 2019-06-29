@@ -4,22 +4,7 @@
 @File: insertSort.py
 @Email: kongwiki@163.com
 """
-import random
-
-
-def randomList(start=1, stop=1000, leng=50):
-    """
-    随机生产一个长度为50的整数数组
-    :param start: 生成随机数字的开始
-    :param stop: 生成随机数字的结束
-    :param leng: 随机数组的长度
-    :return: arrylist 随机数组
-    """
-    start, stop = int(start), int(stop) if start<=stop else (int(stop), int(start))
-    arrayList = []
-    for i in range(leng):
-        arrayList.append(random.randint(start, stop))
-    return arrayList
+from Sort.extentions import randomList
 
 
 def insertSort(arraylist):
@@ -34,6 +19,7 @@ def insertSort(arraylist):
         current = arraylist[i]
         j = i-1
         while j >= 0 and current < arraylist[j]:
+            # 后移
             arraylist[j+1] = arraylist[j]
             j = j-1
         arraylist[j+1] = current
