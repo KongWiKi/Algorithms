@@ -34,7 +34,6 @@ def insertSortIII(arrayList):
     next = [-1]*(arrayLen+1)
     for i in range(arrayLen):
         insert(arrayList, next, i)
-    print(next)
     return reorder(arrayList, next)
 
 
