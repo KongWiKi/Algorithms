@@ -35,15 +35,32 @@ class TreeNode:
             if self.leftChild == None:
                 self.leftChild = TreeNode(newData)
             else:
-                self.leftChild.insert(newData)
+                return self.leftChild.insert(newData)
         else:
             if self.rightChild == None:
                 self.rightChild = TreeNode(newData)
             else:
-                self.rightChild.insert(newData)
+                return self.rightChild.insert(newData)
 
     def findValue(self, newData):
-        pass
+        """
+        查找值
+        记得添加return 否者其无返回值 会继续的查找 却无法返回该值
+        :param newData:
+        :return:
+        """
+        if newData == self.data:
+            return True
+        elif newData < self.data:
+            if self.leftChild:
+                return self.leftChild.findValue(newData)
+            else:
+                return False
+        else:
+            if self.rightChild:
+                return self.rightChild.findValue(newData)
+            else:
+                return False
 
     # 以下的前中后遍历均为递归的遍历
     def preOrder(self):
@@ -76,10 +93,10 @@ class TreeNode:
         左右根
         :return:
         """
-        if self.rightChild:
-            self.rightChild.postOrder()
         if self.leftChild:
             self.leftChild.postOrder()
+        if self.rightChild:
+            self.rightChild.postOrder()
         print(self.data)
 
 
@@ -88,4 +105,5 @@ if __name__ == '__main__':
     node = TreeNode(5)
     for i in range(len(array)):
         node.insert(array[i])
-    node.postOrder()
+    node.inOrder()
+    print(node.findValue(8))
