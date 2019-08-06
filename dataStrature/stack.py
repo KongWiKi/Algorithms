@@ -36,6 +36,7 @@ class Stack:
         return self.items == []
 
     def push(self, item):
+        print("当前入栈元素为{}".format(item))
         return self.items.append(item)
 
     def pop(self):
@@ -136,18 +137,17 @@ def baseConvert(decNumber, base):
 
 
 if __name__ == '__main__':
-    # s = Stack()
-    # print(s.isEmpty())
-    # s.push(4)
-    # s.push('dog')
-    # s.push('cat')
-    # print("当前栈的元素有{}".format(s.items))
-    # print("栈顶元素为{}".format(s.peek()))
-    # s.pop()
-    # print("弹出栈顶元素之后 栈的元素有{}".format(s.items))
-    # print("当前栈长为{}".format(s.size()))
-    # print("当期栈是否为空 {}".format(s.isEmpty()))
+    s = Stack()
+    print(s.isEmpty())
+    s.push(4)
+    s.push('dog')
+    s.push('cat')
+    print("当前栈的元素有{}".format(s.items))
+    print("栈顶元素为{}".format(s.peek()))
+    s.pop()
+    print("弹出栈顶元素之后 栈的元素有{}".format(s.items))
+    print("当前栈长为{}".format(s.size()))
+    print("当期栈是否为空 {}".format(s.isEmpty()))
     # string = '((()))'
     # string1 = '(((()))'
     # print(pairCheck(string1))
-    # print(divideBy2(8))
