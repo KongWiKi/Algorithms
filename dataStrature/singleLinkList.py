@@ -78,6 +78,70 @@ class UnorderedList:
 			previous.setNext(current.getNext())
 
 
+# 有序链表
+# ADT
+# OrderList: 创建新的空有序链表 返回一个空的有序链表
+# add(item): 在有序链表中添加元素 无返回值
+# remove(item): 在有序链表中添加元素 无返回值
+# search(item): 在有序链表中搜索元素 返回bool
+# size(): 返回有序链表的长度
+# isEmpty(): 判断是否为空 返回bool
+# pop(): 弹出有序链表中最后一个项
+# pop(pos): 删除并返回传入位置的元素
+# index(): 返回当前值的索引
+class OrderList:
+	def __init__(self):
+		self.head = None
+
+	def add(self, item):
+		previous = None
+		current = self.head
+		stop = False
+		while current!=None and not stop:
+			if current.getData() > item:
+				stop = True
+			else:
+				previous = current
+				current = current.getNext()
+		temp = Node(item)
+		if previous == None:
+			temp.setNext(self.head)
+			self.head = temp
+		else:
+			temp.setNext(current)
+			previous.setNext(temp)
+
+
+	def remove(self, item):
+		pass
+
+	def search(self, item):
+		found = False
+		stop = False
+		current = self.head
+		while current!=None and not stop and not found:
+			if current.getData() == item:
+				found = True
+			else:
+				if current.getData() > item:
+					stop = True
+				else:
+					current = current.getNext()
+		return found
+
+	def pop(self):
+		pass
+
+	def pop(self, pos):
+		pass
+
+	def isEmpty(self):
+		pass
+
+	def size(self):
+		pass
+
+
 if __name__ == '__main__':
 	# temp = Node(5)
 	# print(temp.getData())
